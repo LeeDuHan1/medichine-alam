@@ -100,7 +100,7 @@ public class MainActivity extends Activity {
             @Override
             public void onTabChanged(String tabId) {
                 //각각의 탭을 눌렀을때 toast 호출
-                if (tabId.equals("Tab1")) {
+                if (tabId.equals("Tab1"){
                     Toast toast = Toast.makeText(getApplicationContext(), "1번째 탭", Toast.LENGTH_SHORT);
                     toast.show();
                 } else if (tabId.equals("Tab2")) {

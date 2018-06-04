@@ -19,7 +19,10 @@ public class loadingActivity extends Activity{
         final ImageView loadPoint = (ImageView)findViewById(R.id.loadPoint);
         Animation scale = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.point_ani);
         final Animation scaleB = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.point_back);
-        final Animation loadTrans = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.load_text);
+        final Animation loadTrans1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.load_text);
+        final Animation loadTrans2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.load_text);
+        final Animation loadTrans3 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.load_text);
+        final Animation loadTrans4 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.load_text);
         final TextView load1 = (TextView)findViewById(R.id.load1);
         final TextView load2 = (TextView)findViewById(R.id.load2);
         final TextView load3 = (TextView)findViewById(R.id.load3);
@@ -43,8 +46,8 @@ public class loadingActivity extends Activity{
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
-                            load1.startAnimation(loadTrans);
-                            loadTrans.setAnimationListener(new Animation.AnimationListener() {
+                            load1.startAnimation(loadTrans1);
+                            loadTrans1.setAnimationListener(new Animation.AnimationListener() {
                                 @Override
                                 public void onAnimationStart(Animation animation) {
 
@@ -52,8 +55,8 @@ public class loadingActivity extends Activity{
 
                                 @Override
                                 public void onAnimationEnd(Animation animation) {
-                                    load2.startAnimation(loadTrans);
-                                    loadTrans.setAnimationListener(new Animation.AnimationListener() {
+                                    load2.startAnimation(loadTrans2);
+                                    loadTrans2.setAnimationListener(new Animation.AnimationListener() {
                                         @Override
                                         public void onAnimationStart(Animation animation) {
 
@@ -61,8 +64,8 @@ public class loadingActivity extends Activity{
 
                                         @Override
                                         public void onAnimationEnd(Animation animation) {
-                                            load3.startAnimation(loadTrans);
-                                            loadTrans.setAnimationListener(new Animation.AnimationListener() {
+                                            load3.startAnimation(loadTrans3);
+                                            loadTrans3.setAnimationListener(new Animation.AnimationListener() {
                                                 @Override
                                                 public void onAnimationStart(Animation animation) {
 
@@ -70,7 +73,7 @@ public class loadingActivity extends Activity{
 
                                                 @Override
                                                 public void onAnimationEnd(Animation animation) {
-                                                    load4.startAnimation(loadTrans);
+                                                    load4.startAnimation(loadTrans4);
                                                 }
 
                                                 @Override
