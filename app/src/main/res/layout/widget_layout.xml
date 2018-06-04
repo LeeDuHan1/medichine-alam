@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#ff000000"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/widetIcon"
+        android:src="@drawable/alarmclock"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="알람설정"
+        android:textColor="#FFFFFF"
+        android:shadowColor="#FF464646"
+        android:shadowDx="1.0"
+        android:shadowDy="1.0"
+        android:shadowRadius="1.0"
+        android:textSize="12dp"
+        android:id="@+id/textView5" />
+
+</LinearLayout>

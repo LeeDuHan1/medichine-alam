@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.lee.medichine_alarm" >
+
+    <uses-sdk
+        android:minSdkVersion="23"
+        android:targetSdkVersion="23" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="medichine_alarm"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.lee.medichine_alarm.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".AddActivity" />
+        <activity android:name="com.example.lee.medichine_alarm.AlarmActivity" android:process=":remote"/>
+        <activity android:name="com.example.lee.medichine_alarm.loadingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/LoadingTheme"/>
+        <activity android:name="com.example.lee.medichine_alarm.LoginActivity" />\
+
+        <!--<activity android:name="com.example.lee.medichine_alarm.AlarmRegister" />-->
+        <activity android:name="com.example.lee.medichine_alarm.AlarmPlay" />
+        <activity android:name="com.example.lee.medichine_alarm.mp3Search" />
+        <activity
+            android:name="com.example.lee.medichine_alarm.ShowMsgActivity"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <activity android:name=".removeActivity">
+            <intent-filter>
+                <action android:name="AlarmRemove" >
+                </action>
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".AlarmReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="AlarmReceiver" >
+                </action>
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <receiver
+            android:name="com.example.lee.medichine_alarm.WidgetProvier"
+            android:label="위젯 테스트 (일반)" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_provider" />
+        </receiver>
+    </application>
+
+</manifest>

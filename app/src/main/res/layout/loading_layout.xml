@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/smartpath"/>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/loadPoint"
+        android:layout_marginTop="170dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/point"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="18dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/loadPoint"
+        android:layout_marginBottom="175dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="46dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="메"
+            android:textSize="40dp"
+            android:id="@+id/load1"
+            android:layout_weight="1"
+            android:layout_marginLeft="40dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="디"
+            android:textSize="40dp"
+            android:id="@+id/load2"
+            android:layout_alignBottom="@+id/textView11"
+            android:layout_toEndOf="@+id/textView11"
+            android:layout_alignTop="@+id/textView11"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="체"
+            android:id="@+id/load3"
+            android:typeface= "serif"
+            android:textSize="40dp"
+            android:layout_alignBottom="@+id/textView12"
+            android:layout_toEndOf="@+id/loadPoint"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="크"
+            android:id="@+id/load4"
+            android:textSize="40dp"
+            android:typeface= "monospace"
+            android:layout_alignBottom="@+id/textView13"
+            android:layout_alignParentEnd="true"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

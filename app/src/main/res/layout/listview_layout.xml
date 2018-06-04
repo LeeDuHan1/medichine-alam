@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="horizontal"
+>
+
+    <ImageView
+        android:id="@+id/mImage"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/emty"
+        android:layout_alignParentStart="true" />
+
+    <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:orientation="vertical"
+    android:id="@+id/linearLayout">
+
+</LinearLayout>
+
+    <TextView
+        android:id="@+id/mText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text"
+        android:textSize = "25dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/mImage" />
+
+    <TextView
+        android:id="@+id/method"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text"
+        android:textSize="15dp"
+        android:layout_below="@+id/mText"
+        android:layout_toEndOf="@+id/mImage" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="알람"
+        android:textSize="20dp"
+        android:switchMinWidth="50dp"
+        android:id="@+id/alarmSwitch"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/mImage"
+        android:checked="true" />
+
+</RelativeLayout>
