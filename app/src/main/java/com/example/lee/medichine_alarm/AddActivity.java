@@ -155,14 +155,11 @@ public class AddActivity extends Activity implements View.OnClickListener {
                 }
                 if(imageString == null) {
                     imageString = "imageNull";
-                    String setJson = JsonPaser.setJson(imageString,title.getText().toString(),type,mHour,mHour2,mHour3,mHour4,mHour5,mMinute,mMinute2,mMinute3,mMinute4,mMinute5,afterMinute,false); //데이터를 JsonArray로 변환
-                    PreferencesUtil.setPreferences(getApplicationContext(),"json",setJson);
-                    PreferencesUtil.setPreferences(getApplicationContext(),"first3","true");
-                }else if(imageString != null){
-                    String setJson = JsonPaser.setJson(imageString,title.getText().toString(),type,mHour,mHour2,mHour3,mHour4,mHour5,mMinute,mMinute2,mMinute3,mMinute4,mMinute5,afterMinute,false); //데이터를 JsonArray로 변환
-                    PreferencesUtil.setPreferences(getApplicationContext(),"json",setJson);
-                    PreferencesUtil.setPreferences(getApplicationContext(),"first3","true");
                 }
+                    String setJson = JsonPaser.setJson(imageString,title.getText().toString(),type,mHour,mHour2,mHour3,mHour4,mHour5,mMinute,mMinute2,mMinute3,mMinute4,mMinute5,afterMinute,false); //데이터를 JsonArray로 변환
+                    PreferencesUtil.setPreferences(getApplicationContext(),"json",setJson);
+                    PreferencesUtil.setPreferences(getApplicationContext(),"first3","true");
+
                 Animation right = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.right_trans);
                 final TextView tutoText3 = (TextView)findViewById(R.id.tutoText3);
                 final ImageView tuto2 = (ImageView)findViewById(R.id.tuto2);
