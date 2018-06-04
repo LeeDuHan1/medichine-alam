@@ -4,20 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import org.json.JSONArray;
-
-/**
- * preferencesUtil 클래스
- * 파일 형태의 저장소 (Key, Value 형태의 Editing)
- * @author YT
- */
-
-@SuppressWarnings("static-access")
 public class PreferencesUtil{
 
-    /**
-     * Preference 세팅
-     * @author YT
-     */
     public static void setPreferences(Context context, String key, String value) {
         if(key.contains("json")) {
             SharedPreferences p = context.getSharedPreferences("json", context.MODE_PRIVATE);

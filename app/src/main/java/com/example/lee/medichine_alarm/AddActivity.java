@@ -153,7 +153,7 @@ public class AddActivity extends Activity implements View.OnClickListener {
                 } else if (c2.isChecked()) {
                     type = "정해진 시간에 복용";
                 }
-                if(imageString == null){
+                if(imageString == null) {
                     imageString = "imageNull";
                     String setJson = JsonPaser.setJson(imageString,title.getText().toString(),type,mHour,mHour2,mHour3,mHour4,mHour5,mMinute,mMinute2,mMinute3,mMinute4,mMinute5,afterMinute,false); //데이터를 JsonArray로 변환
                     PreferencesUtil.setPreferences(getApplicationContext(),"json",setJson);

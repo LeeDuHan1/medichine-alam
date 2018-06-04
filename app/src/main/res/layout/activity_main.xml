@@ -82,64 +82,63 @@
 
                         <RelativeLayout
                             android:id="@+id/screenTouch"
+                            android:background="@color/colorGrey"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
 
                             <ListView
+                                android:id="@+id/listView1"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:id="@+id/listView1"
-                                android:layout_gravity="center_horizontal|top"
-                                android:background="@drawable/customlistview"
-                                android:foregroundGravity="center_vertical"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginTop="20dp"
+                                android:layout_gravity="center_horizontal|top"
                                 android:layout_marginBottom="20dp"
                                 android:layout_marginLeft="10dp"
-                                android:layout_marginRight="10dp" />
+                                android:layout_marginRight="10dp"
+                                android:layout_marginTop="20dp"
+                                android:foregroundGravity="center_vertical" />
 
                             <ImageView
+                                android:id="@+id/tuto1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/tuto1"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginStart="150dp"
                                 android:layout_marginTop="430dp"
-                                android:visibility="gone"
-                                />
+                                android:visibility="gone" />
 
                             <TextView
+                                android:id="@+id/tutoText1"
                                 android:layout_width="320dp"
                                 android:layout_height="wrap_content"
-                                android:textAppearance="?android:attr/textAppearanceLarge"
-                                android:text="반갑습니다."
-                                android:textSize="20dp"
-                                android:id="@+id/tutoText1"
-                                android:background="#70ffffff"
-                                android:layout_marginTop="160dp"
                                 android:layout_alignTop="@+id/listView1"
                                 android:layout_centerHorizontal="true"
-                                android:visibility="gone"/>
+                                android:layout_marginTop="160dp"
+                                android:background="#70ffffff"
+                                android:text="반갑습니다."
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:textSize="20dp"
+                                android:visibility="gone" />
 
                             <ImageView
+                                android:id="@+id/tuto3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/tuto3"
                                 android:layout_marginStart="200dp"
                                 android:layout_marginTop="100dp"
                                 android:src="@drawable/swip2"
-                                android:visibility="gone"/>
+                                android:visibility="gone" />
                             <!--<TextView-->
-                                <!--android:layout_width="wrap_content"-->
-                                <!--android:layout_height="wrap_content"-->
-                                <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
-                                <!--android:text="터치시 계속."-->
-                                <!--android:textSize="15dp"-->
-                                <!--android:id="@+id/tutoText2"-->
-                                <!--android:layout_below="@+id/tutoText1"-->
-                                <!--android:layout_centerHorizontal="true"-->
-                                <!--android:visibility="gone"/>-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+                            <!--android:text="터치시 계속."-->
+                            <!--android:textSize="15dp"-->
+                            <!--android:id="@+id/tutoText2"-->
+                            <!--android:layout_below="@+id/tutoText1"-->
+                            <!--android:layout_centerHorizontal="true"-->
+                            <!--android:visibility="gone"/>-->
 
                         </RelativeLayout>
 

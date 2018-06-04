@@ -28,15 +28,15 @@ import java.io.IOException;
  * Created by lee on 2016-06-11.
  */
 public class AlarmPlay extends Activity{
-
+    Context context;
     MediaPlayer music;
     Button button;
     Vibrator vide;
 
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alarm_layout);
+        context = getApplicationContext();
         Thread myThread = new Thread(new Runnable() {
             public void run() {
                 while (true) {
@@ -54,7 +54,7 @@ public class AlarmPlay extends Activity{
 
     }
     Handler handler = new Handler() {
-        int count = doJson(PreferencesUtil.getPreferences(getApplicationContext(),"json"));
+        int count = doJson(PreferencesUtil.getPreferences(context,"json"));
         @Override
         public void handleMessage(Message msg) {
 //            TextView mtext = (TextView) findViewById(R.id.countdown);
@@ -96,7 +96,7 @@ public class AlarmPlay extends Activity{
         music.start();
         vide = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         long[] pattern = { 0, 500, 200};
-        vide.vibrate(pattern, 0);
+        vide.vibrate(pattern,0);
         button = (Button) findViewById(R.id.StopButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

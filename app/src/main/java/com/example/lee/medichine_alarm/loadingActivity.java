@@ -8,6 +8,7 @@ import android.os.Message;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class loadingActivity extends Activity{
@@ -23,11 +24,12 @@ public class loadingActivity extends Activity{
         final Animation loadTrans2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.load_text);
         final Animation loadTrans3 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.load_text);
         final Animation loadTrans4 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.load_text);
+        final Animation loadTrans5 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.load_text);
         final TextView load1 = (TextView)findViewById(R.id.load1);
         final TextView load2 = (TextView)findViewById(R.id.load2);
         final TextView load3 = (TextView)findViewById(R.id.load3);
         final TextView load4 = (TextView)findViewById(R.id.load4);
-
+        final LinearLayout linearLayout_text = (LinearLayout) findViewById(R.id.linearLayout_text);
         loadPoint.startAnimation(scale);
         scale.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -74,6 +76,23 @@ public class loadingActivity extends Activity{
                                                 @Override
                                                 public void onAnimationEnd(Animation animation) {
                                                     load4.startAnimation(loadTrans4);
+                                                    loadTrans4.setAnimationListener(new Animation.AnimationListener() {
+                                                        @Override
+                                                        public void onAnimationStart(Animation animation) {
+
+                                                        }
+
+                                                        @Override
+                                                        public void onAnimationEnd(Animation animation) {
+                                                            linearLayout_text.startAnimation(loadTrans5);
+                                                        }
+
+                                                        @Override
+                                                        public void onAnimationRepeat(Animation animation) {
+
+                                                        }
+                                                    });
+
                                                 }
 
                                                 @Override
