@@ -118,14 +118,16 @@ public class MainActivity extends Activity {
         final Animation fadein = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadein);
         final Animation fadeout = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadeout);
         final Animation right = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.right_trans);
+
         mAdapter = new ListViewAdapter(this);
         mListView.setAdapter(mAdapter);
         mListView.startAnimation(listviewAni);
+
         final TextView tutoText = (TextView) findViewById(R.id.tutoText1);
         final ImageView tuto1 = (ImageView) findViewById(R.id.tuto1);
         if(!PreferencesUtil.getPreferences(getApplicationContext(),"first3").contains("true")) {
             tutoText.setVisibility(View.VISIBLE);
-            tutoText.setText("                      <튜토리얼>\n메디체크는 여러분의 건강을 위해 정해진 시간 혹은 식후 복용시간에 알람을 울려 줄겁니다. 우선 우측하단의 버튼을 누른 후 생성되는 알람버튼을 눌러 추가하십시오.");
+            tutoText.setText("메디체크는 여러분의 건강을 위해 정해진 시간 혹은 식후 복용시간에 알람을 울려 줄겁니다. 우선 우측하단의 버튼을 누른 후 생성되는 알람버튼을 눌러 추가하십시오.");
             tutoText.startAnimation(fadein);
             tuto1.setVisibility(View.VISIBLE);
             tuto1.setImageResource(R.drawable.swip);
@@ -289,7 +291,6 @@ public class MainActivity extends Activity {
 
     public void doModify() //리스트뷰 수정
     {
-        ;
         Toast t = Toast.makeText(this, "수정", Toast.LENGTH_SHORT);
         t.show();
     }

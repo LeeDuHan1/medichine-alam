@@ -42,41 +42,23 @@ public class removeActivity extends Activity {
        final ImageView time = (ImageView)findViewById(R.id.timer);
         final Animation vib = AnimationUtils.loadAnimation(getApplication(),R.anim.vibration_ani);
         time.startAnimation(vib);
-
-
-
-
-
         //알람 설정, 해제 버튼
         Button.OnClickListener bClickListener = new View.OnClickListener() {
-
             public void onClick(View v) {
-                switch (v.getId()) {
-
-                    case R.id.StopButton:
                         vide.cancel();
                         mediaPlayer.stop();
                         time.clearAnimation();
                         removeAlarm();
-                        break;
-
-
-                }
             }
         };
-
           findViewById(R.id.StopButton).setOnClickListener(bClickListener);
-//        findViewById(R.id.removeAlarm).setOnClickListener(bClickListener);
     }
     void removeAlarm(){
-
         intent = new Intent("AlarmReceiver");
         //PendingIntent.getBroadcast(Context context, int requestCod, Intent intent, int flag);
         ServicePending = PendingIntent.getBroadcast(removeActivity.this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        Log.d("ServicePending : ",""+ServicePending.toString());
-
+        Log.d("ServicePending : ","" + ServicePending.toString());
         Toast.makeText(getBaseContext(), "알람 해제", Toast.LENGTH_SHORT).show();
-
         alarmManager.cancel(ServicePending);
     }
 }

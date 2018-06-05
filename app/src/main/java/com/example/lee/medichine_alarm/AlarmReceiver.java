@@ -20,79 +20,57 @@ import android.widget.Toast;
 
 import java.io.File;
 
-public class AlarmReceiver extends BroadcastReceiver
-{
+public class AlarmReceiver extends BroadcastReceiver {
     static int mount = 0;
     Context context;
-    String title = "감기약";
+    String title;
     @Override
-    public void onReceive(final Context context, Intent intent)
-    {
-
+    public void onReceive(final Context context, Intent intent) {
             String name = intent.getStringExtra("name");
-        Log.d("타이4",name);
-                title = name;
+            this.title = name;
             this.context = context;
             PowerManager powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
             PowerManager.WakeLock wakeLock = powerManager.newWakeLock(PowerManager.ACQUIRE_CAUSES_WAKEUP | PowerManager.SCREEN_BRIGHT_WAKE_LOCK,"");
             wakeLock.acquire();
 
-
-            Log.d("alarm", "gogo");
-
-
             PendingIntent pendingIntent;
-
             Toast toast = Toast.makeText(context, "알람이 울립니다.", Toast.LENGTH_LONG);
             toast.setGravity(Gravity.TOP, 0, 200);
             toast.show();
-
             wakeLock.release();
-
 
     try {
         intent = new Intent(context, removeActivity.class);
         pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         intent.putExtra("name", title);
-        Log.d("타이5", title);
         Log.d("ServicePending++ : ", "" + pendingIntent.toString());
         pendingIntent.send();
 
     } catch (PendingIntent.CanceledException e) {
         e.printStackTrace();
     }
-
         notification();
-
     }
 
     void notification() {
     Intent intent = new Intent();
-    //알림 사운드
     Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-    //큰 아이콘
-    Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.pills); // 아이콘 ic_menu_gallery를 띄워준다.
-
-
-    //노티피케이션을 생성할때 매개변수는 PendingIntent이므로 Intent를 PendingIntent로 만들어주어야함.
+    Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.pills);
     PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_ONE_SHOT);
 
     //노티피케이션 빌더 : 위에서 생성한 이미지나 텍스트, 사운드등을 설정해줍니다.
     NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context)
             .setSmallIcon(R.drawable.pills)
-            .setLargeIcon(bitmap) // 이미지
-            .setContentTitle(title) // 푸시의 타이틀이다.
-            .setContentText("복용하세요~") // 서버에서 받은 텍스트
+            .setLargeIcon(bitmap)
+            .setContentTitle(title)
+            .setContentText("복용하세요~")
             .setAutoCancel(true)
-            .setSound(soundUri) // 푸시가 날아올때 사운드 설정
-            .setContentIntent(pendingIntent); // 푸시를 누르면 위에서 설정한 intent에 의해 화면이 넘어간다.
+            .setSound(soundUri)
+            .setContentIntent(pendingIntent);
 
-    NotificationManager notificationManager =
-            (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+    NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
     //노티피케이션을 생성합니다.
-    notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
-
-
+         notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
     }
 
 }

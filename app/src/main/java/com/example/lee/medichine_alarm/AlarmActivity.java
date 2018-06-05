@@ -114,7 +114,6 @@ public class AlarmActivity extends AppCompatActivity {
                     ServicePending = PendingIntent.getBroadcast(AlarmActivity.this, j, intent, PendingIntent.FLAG_UPDATE_CURRENT);
                     Toast.makeText(getBaseContext(), "알람 해제" + cal.getTime(), Toast.LENGTH_SHORT).show();
                     alarmManager.cancel(ServicePending);
-
                 }
                 finish();
             }else

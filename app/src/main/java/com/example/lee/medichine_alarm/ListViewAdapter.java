@@ -23,14 +23,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class ListViewAdapter extends BaseAdapter{
-    Calendar Time = Calendar.getInstance();
-
-    //알람 설정을 위한 객체
-    private Intent intent;
-    private PendingIntent ServicePending;
-    private AlarmManager alarmManager;
-
-    private Context mContext = null;
+    private Context mContext;
     static public ArrayList<ListData> mListData = new ArrayList<ListData>();
 
     public ListViewAdapter(Context context){
@@ -54,10 +47,8 @@ public class ListViewAdapter extends BaseAdapter{
 
     @Override
       public View getView(final int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
+        ViewHolder holder = new ViewHolder();
         if (convertView == null) {
-            holder = new ViewHolder();
-
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.listview_layout, null);
 
@@ -97,7 +88,6 @@ public class ListViewAdapter extends BaseAdapter{
                     AlarmActivity.setting = true;
                     Intent i = new Intent(mContext,AlarmActivity.class);
                     i.putExtra("name",mListData.get(position).mTitle+"");
-                    Log.d("타이1",mListData.get(position).mTitle+"");
                     i.putExtra("hour", mListData.get(position).hour1 + "");
                     i.putExtra("minute", mListData.get(position).minute1 + "");
                     i.putExtra("hour2", mListData.get(position).hour2 + "");
@@ -135,8 +125,7 @@ public class ListViewAdapter extends BaseAdapter{
     }
 
     public void addItem(Drawable icon, String mTitle, String method, Boolean alarmSwitch, Integer hour1, Integer minute1,Integer hour2, Integer minute2,Integer hour3, Integer minute3,Integer hour4, Integer minute4,Integer hour5, Integer minute5,Integer afterMinute){
-        ListData addInfo = null;
-        addInfo = new ListData();
+        ListData addInfo = new ListData();
         addInfo.mIcon = icon;
         addInfo.mTitle = mTitle;
         addInfo.method = method;

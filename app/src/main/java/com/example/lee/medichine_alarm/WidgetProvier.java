@@ -72,33 +72,11 @@ public class WidgetProvier extends AppWidgetProvider{
 
     public static void updateAppWidget(Context context,AppWidgetManager appWidgetManager, int appWidgetId) {
 
-//        ImageView testView = (ImageView)((Activity)context).findViewById(R.id.widetIcon);
-//        /**
-//         * 현재 시간 정보를 가져오기 위한 Calendar
-//         */
-//        Calendar mCalendar = Calendar.getInstance();
-//        SimpleDateFormat mFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm",
-//                Locale.KOREA);
-
-//        /**
-//         * RemoteViews를 이용해 Text설정
-//         */
         RemoteViews updateViews = new RemoteViews(context.getPackageName(),R.layout.widget_layout);
-        /**
-         * 레이아웃을 클릭하면 액티비티 실행
-         */
-//        Intent intent1 = new Intent(context, ShowMsgActivity.class);
-//        intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        context.startActivity(intent1);
 
         Intent intent = new Intent(context, AlarmPlay.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
         updateViews.setOnClickPendingIntent(R.id.mLayout, pendingIntent);
-
-        /**
-         * 위젯 업데이트
-         */
-
         appWidgetManager.updateAppWidget(appWidgetId, updateViews);
     }
 }

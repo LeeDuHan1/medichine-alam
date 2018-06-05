@@ -41,62 +41,40 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-
-
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 public class AddActivity extends Activity implements View.OnClickListener {
-    private ListViewAdapter mAdapter = null;
-    private ListView mListView = null;
-
     private static final int PICK_FROM_CAMERA = 0;
     private static final int PICK_FROM_ALBUM = 1;
     private static final int CROP_FROM_iMAGE = 2;
 
     private Uri mImageCaptureUri;
     private ImageButton myEmtyBtn;
-    private int id_view;
-    private String absoultePath = null;
-
     private String filePath ="";
-//    private DB_Manger dbmanger;
-
     //시간 설정을 위한 객체
-    Calendar Time;
+    private Calendar Time;
 
     //알람 설정을 위한 객체
     private Intent intent;
     private PendingIntent ServicePending;
     private AlarmManager alarmManager;
 
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy년 MM월 dd일 mm분 ss초");
-
     private TextView mTimeDisplay,mTimeDisplay2,mTimeDisplay3,mTimeDisplay4,mTimeDisplay5;
     private Button mPickTime,mPickTime2,mPickTime3,mPickTime4,mPickTime5;
     private int mHour,mHour2,mHour3,mHour4,mHour5 =0;
     private int mMinute,mMinute2,mMinute3,mMinute4,mMinute5 =0;
-    static final int TIME_DIALOG_ID = 1;
     public String imageString ;
-    Bundle extra;
-    Intent i;
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -129,9 +107,9 @@ public class AddActivity extends Activity implements View.OnClickListener {
             }
         });
 
-        Button b2 = (Button) findViewById(R.id.saveBtn);
+        Button saveBtn = (Button) findViewById(R.id.saveBtn);
 
-        b2.setOnClickListener(new View.OnClickListener() {
+        saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast toast = Toast.makeText(getApplicationContext(), "save", Toast.LENGTH_SHORT);
@@ -139,7 +117,6 @@ public class AddActivity extends Activity implements View.OnClickListener {
 
                 Intent intent = getIntent();
                 EditText title = (EditText) findViewById(R.id.drugTitle);
-//                ImageView photo = (ImageView) findViewById(R.id.base1);
                 String type = new String();
                 CheckBox c1 = (CheckBox) findViewById(R.id.checkBox);
                 CheckBox c2 = (CheckBox) findViewById(R.id.checkBox2);
@@ -311,7 +288,6 @@ public class AddActivity extends Activity implements View.OnClickListener {
                     myEmtyBtn.setImageBitmap(photo); // 레이아웃의 이미지칸에 CROP된 BITMAP을 보여줌
                     imageString = BitmapToString(photo);
                     storeCropImage(photo, filePath); // CROP된 이미지를 외부저장소, 앨범에 저장한다.
-                    absoultePath = filePath;
                     break;
 
                 }else if (extras == null) {
@@ -331,7 +307,6 @@ public class AddActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        id_view = v.getId();
         if (v.getId() == R.id.emtyImage) {
             DialogInterface.OnClickListener cameraListener = new DialogInterface.OnClickListener() {
                 @Override
